@@ -9,18 +9,20 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
 
+  const fetchUserProfile = async () => {
+    try {
+      const { data } = await getCurrentUserProfile();
+      setProfile(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const { data } = await getCurrentUserProfile();
-        setProfile(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
     fetchUserProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (window.innerWidth < 1024) {

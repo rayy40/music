@@ -23,6 +23,7 @@ const SongBar = () => {
     if (!trackData) return;
     setIsPlaying(true);
     animationRef.current = requestAnimationFrame(whilePlaying);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackData]);
 
   const togglePlayPause = () => {

@@ -89,6 +89,7 @@ export default function SeeAllPage() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, state.artistId]);
 
   if (id === "New Releases" && isLoading.newTrack) {
