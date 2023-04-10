@@ -4,7 +4,7 @@ export default function Login() {
   const LOGIN_URI =
     process.env.NODE_ENV !== "production"
       ? "http://localhost:5000/login"
-      : "https://universal-music.onrender.com/login";
+      : "https://universal-music.netlify.app/login";
 
   return (
     <div className="login-page-container">
