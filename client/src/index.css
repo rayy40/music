@@ -520,7 +520,13 @@
 }
 
 .home-container {
-  padding: 3em 0 4em;
+  padding: 0.5em 0 4em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .home-container {
+    padding-top: 3em;
+  }
 }
 
 .header {
@@ -1840,7 +1846,7 @@
 }
 
 .seeAll-page-container {
-  padding: 4em 0em 0em;
+  padding: 2em 0em 0em;
   font-family: "Lato", sans-serif;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -2451,7 +2457,7 @@
 }
 
 .your-music-page-container {
-  padding: 2.25em 0em 4.5em;
+  padding: 0.5em 0em 4.5em;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -3436,10 +3442,14 @@ input[type="range"]::-webkit-progress-bar {
           box-sizing: border-box;
 }
 
+:root {
+  font-size: 15px;
+}
+
 .browse-page-container,
 .discover-page-container,
 .charts-page-container {
-  padding: 4em 1.25em 6em;
+  padding: 2em 1.25em 6em;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];

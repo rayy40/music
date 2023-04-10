@@ -22,10 +22,14 @@
   }
 }
 
+:root {
+  font-size: 15px;
+}
+
 .browse-page-container,
 .discover-page-container,
 .charts-page-container {
-  padding: 4em 1.25em 6em;
+  padding: 2em 1.25em 6em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 2em;

@@ -2,5 +2,11 @@
 @import "../../Components/TopSongs/TopSongs";
 
 .home-container {
-  padding: 3em 0 4em;
+  padding: 0.5em 0 4em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .home-container {
+    padding-top: 3em;
+  }
 }
