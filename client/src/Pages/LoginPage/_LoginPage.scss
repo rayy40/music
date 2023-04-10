@@ -1,0 +1,52 @@
+.login-page-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login-page--background-img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.login-btn {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 15vh;
+  text-decoration: none;
+  appearance: none;
+  color: #333;
+  padding: 1em 1.25em;
+  border: 1px solid #2b2a2f;
+  background-color: transparent;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:hover {
+    background-color: #2b2a2f;
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .login-btn {
+    bottom: 42.5vh;
+    background-color: #2b2a2f;
+    color: #fff;
+    &:hover {
+      color: #333;
+      background-color: transparent;
+    }
+  }
+}

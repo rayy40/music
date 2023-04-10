@@ -1,0 +1,197 @@
+.header {
+  position: fixed;
+  padding: 1.5em 1.25em;
+  z-index: 99;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  transition: all 400ms ease-in;
+  font-family: "Lato", sans-serif;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px) saturate(160%) contrast(45%) brightness(140%);
+  .logo {
+    position: absolute;
+    top: 16.5px;
+    left: 20px;
+    font-size: 2rem;
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+    h3 {
+      margin-top: 0.25em;
+      font-weight: 800;
+      color: #333;
+      color: #d85555;
+      font-size: 0.925rem;
+    }
+  }
+  .navbar-icons {
+    display: none;
+  }
+  .links {
+    display: flex;
+    gap: 1.65em;
+    align-items: center;
+    a:-webkit-any-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      text-decoration: none;
+      color: #888;
+      transition: all 0.5s;
+      &:after {
+        position: absolute;
+        bottom: -2.5px;
+        left: 0px;
+        right: 0;
+        margin: auto;
+        width: 0;
+        content: " ";
+        color: #333;
+        background: #333;
+        height: 0.75px;
+        transition: all 0.5s;
+      }
+      &:hover {
+        color: #333;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .user {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+    p {
+      font-weight: 600;
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .navbar-signing-container {
+      position: absolute;
+      width: 100%;
+      top: 50px;
+      border: 1px solid #c3c3c3;
+      padding: 0.85em 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: white;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+      i {
+        position: absolute;
+        top: -20px;
+        left: 6.5px;
+        font-size: 30px;
+        color: #c3c3c3;
+      }
+      a {
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        margin-left: 15px;
+        color: #888;
+      }
+      &:hover {
+        background-color: #c3c3c3;
+        a {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header--active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #e4e4e4;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .header {
+    width: 100vw;
+    padding: 1.5em 1.25em;
+    justify-content: space-between;
+    background-color: white;
+    backdrop-filter: unset;
+    .navbar-icons {
+      display: block;
+      margin-top: 0em;
+      margin-left: 0.25em;
+      i {
+        margin-top: -0.5em;
+        font-size: 1.25rem;
+        color: #d85555;
+      }
+    }
+    .logo {
+      top: 18px;
+      left: 50%;
+      font-size: 1.75rem;
+      transform: translate(-50%, 0);
+      h3 {
+        font-size: 0.925rem;
+      }
+    }
+    .links {
+      display: none;
+    }
+    .user {
+      p {
+        display: none;
+      }
+    }
+  }
+  .header--extension {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    transform: scaleY(0);
+    transform-origin: top;
+    background-color: white;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .header--extension-active {
+    transform: scaleY(1);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    .links--extension {
+      display: flex;
+      flex-direction: column;
+      padding: 5em 1.5em;
+      gap: 1.25em;
+      align-items: flex-start;
+      width: 100%;
+      ul {
+        list-style-type: none;
+        width: 100%;
+        li {
+          padding: 1.5em 0;
+          border-bottom: 1px solid #e4e4e4;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      a:-webkit-any-link {
+        font-family: "Lato", sans-serif;
+        font-weight: 600;
+        font-size: 1.15rem;
+        position: relative;
+        text-decoration: none;
+        color: #333;
+      }
+    }
+  }
+}

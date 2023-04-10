@@ -1,0 +1,109 @@
+.top-songs-container {
+  margin: 0 1.25em;
+  padding: 1.25em 0;
+  user-select: none;
+  border-bottom: 1px solid #d3d3d3;
+  font-family: "Lato", sans-serif;
+  &__header {
+    padding: 0.25em 0.25em 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    h2 {
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    a.link-tag {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.925rem;
+      position: relative;
+      &:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0.6;
+        width: 100%;
+        content: " ";
+        color: transparent;
+        background: #000;
+        height: 1px;
+        transform: scaleX(1);
+        transform-origin: right;
+        transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+      }
+      &:hover {
+        &:after {
+          transform: scaleX(0);
+          transform-origin: right;
+          transition-delay: 0s;
+        }
+      }
+    }
+  }
+  &__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2.5em;
+    font-family: "Lato", sans-serif;
+    &__box {
+      border-top: 1px solid #d3d3d3;
+      padding: 1em 0.5em;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 0.1fr 0.2fr 0.6fr 0.1fr;
+      img {
+        max-width: 55px;
+        border-radius: 6.5px;
+        aspect-ratio: 1 / 1;
+      }
+      p {
+        font-weight: 600;
+        font-size: 1rem;
+        &:last-child {
+          text-align: right;
+          margin-right: 1.25em;
+          i {
+            font-size: 0.925rem;
+            color: #999;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.25em;
+        .artists {
+          display: flex;
+          gap: 0.35em;
+        }
+        a.link-tag {
+          text-decoration: none;
+          color: #888;
+          font-size: 0.925rem;
+          &:not(:last-child)::after {
+            content: ",";
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .top-songs-container__list {
+    grid-template-columns: 1fr;
+    &__box {
+      grid-template-columns: 0fr 0.1fr 1fr 0.1fr;
+      grid-column-gap: 1.5em;
+    }
+  }
+}

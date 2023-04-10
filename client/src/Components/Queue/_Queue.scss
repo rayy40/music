@@ -1,0 +1,209 @@
+.queue-container {
+  font-family: "Lato", sans-serif;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100vh;
+  padding: 1.25em;
+  padding-top: 5em;
+  z-index: 3;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(50px) saturate(160%) contrast(50%) brightness(140%);
+  &__inner {
+    opacity: 0;
+    transition: opacity 0.1s 0s;
+    .queue-container__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 0.925rem;
+        width: fit-content;
+        cursor: pointer;
+        position: relative;
+        &:after {
+          position: absolute;
+          left: 0;
+          bottom: -0.5px;
+          opacity: 0.6;
+          width: 100%;
+          content: " ";
+          color: transparent;
+          background: #000;
+          height: 1px;
+          transform: scaleX(1);
+          transform-origin: right;
+          transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        }
+        &:hover::after {
+          transform: scaleX(0);
+          transform-origin: right;
+          transition-delay: 0s;
+        }
+      }
+    }
+    ul {
+      margin-top: 1em;
+      list-style-type: none;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75em 0;
+        .track-details {
+          width: calc(75% - (50px + 1em));
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          .track--img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: inherit;
+              object-fit: contain;
+            }
+            &::before {
+              content: "\f04b";
+              cursor: pointer;
+              opacity: 0;
+              transition: opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+              border-radius: 6.5px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.5);
+              font-family: "Font Awesome 5 Free";
+              font-size: 1.1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-weight: 900;
+            }
+            &:hover::before {
+              opacity: 1;
+            }
+          }
+          .track--name {
+            width: 100%;
+            font-size: 1rem;
+            p {
+              font-weight: 600;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              margin-bottom: 0.25em;
+            }
+            &__artists {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              a {
+                text-decoration: none;
+                color: #888;
+                font-size: 0.925rem;
+                cursor: pointer;
+                &:not(:last-child)::after {
+                  content: ", ";
+                }
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+    i.fa-trash {
+      cursor: pointer;
+      color: #aaa;
+      &:hover {
+        color: #888;
+      }
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.queue-container--active {
+  overflow-y: auto;
+  transform: scaleX(1);
+  transition: transform cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+  .queue-container__inner {
+    opacity: 1;
+    transition: 0s 0s;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .tracks-queue__list {
+    ul {
+      list-style-type: none;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 0;
+        border-bottom: 1px solid #e4e4e4;
+        .track-details {
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .track--img {
+            width: 60px;
+            border-radius: 4px;
+            img {
+              border-radius: inherit;
+              width: 100%;
+              aspect-ratio: 1 / 1;
+            }
+          }
+          .track--name {
+            width: 75%;
+            p {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-size: 1.1rem;
+            }
+            &__artists {
+              margin-top: 0.25em;
+              a {
+                font-size: 0.925rem;
+                text-decoration: none;
+                color: #333;
+                &:not(:last-child)::after {
+                  content: ", ";
+                }
+              }
+            }
+          }
+        }
+        .track-delete {
+          i {
+            color: #aaa;
+          }
+        }
+      }
+    }
+  }
+}

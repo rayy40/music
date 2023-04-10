@@ -1,0 +1,160 @@
+.album-page-container {
+  padding: 4em 2em 0em;
+  font-family: "Lato", sans-serif;
+  user-select: none;
+  &__top {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+    grid-column-gap: 3em;
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      p {
+        color: #888;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: 0.35px;
+        font-size: 0.925rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      &:first-child {
+        span {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+        }
+        img {
+          width: 100%;
+          border-radius: 10px;
+          filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+          min-width: 225px;
+          aspect-ratio: 1 / 1;
+        }
+      }
+      &:last-child {
+        margin-top: 1.15em;
+      }
+      .row__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        span {
+          font-size: 0.925rem;
+          color: #aaa;
+          font-weight: 600;
+        }
+      }
+      .row__buttons {
+        margin-bottom: 1.75em;
+        display: flex;
+        gap: 1em;
+        .play-btn {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          padding: 1em 1.75em;
+          border: none transparent;
+          outline: none;
+          border-radius: 20px;
+          background-color: #d85555;
+          color: white;
+          cursor: pointer;
+          i {
+            font-size: 0.875rem;
+          }
+          p {
+            font-size: 0.925rem;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    padding: 2em 0;
+    .song-box-container {
+      padding: 1em;
+      border-bottom: 1px solid whitesmoke;
+      align-items: center;
+      color: #777;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 0.015fr 0.935fr 0.05fr;
+      grid-column-gap: 1.5em;
+      font-weight: 500;
+      .index {
+        position: relative;
+        font-size: 0.825rem;
+      }
+      .song-box__track {
+        font-size: 1rem;
+        letter-spacing: 0.13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 1.5em;
+        color: #000;
+      }
+      &:hover {
+        .index::before {
+          content: " ";
+          position: absolute;
+          border-radius: 6.5px;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          font-family: "Font Awesome 5 Free";
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          color: #333;
+          font-weight: 900;
+          content: "\f04b";
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .album-page-container {
+    padding: 6em 1em 0;
+    &__top {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25em;
+      &__row {
+        justify-content: center;
+        align-items: center;
+        &:first-child {
+          img {
+            width: 225px;
+            min-width: unset;
+          }
+        }
+        .row__content {
+          justify-content: center;
+          align-items: center;
+          gap: 0.25em;
+        }
+        .row__buttons {
+          margin: 1em 0 0;
+        }
+      }
+    }
+    &__bottom {
+      .song-box-container {
+        padding: 1em 0 1em 0.75em;
+      }
+    }
+  }
+}

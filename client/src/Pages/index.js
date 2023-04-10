@@ -1,0 +1,10 @@
+export { default as LoginPage } from "./LoginPage/LoginPage";
+export { default as BrowsePage } from "./BrowsePage/BrowsePage";
+export { default as AlbumPage } from "./AlbumPage/AlbumPage";
+export { default as ArtistPage } from "./ArtistPage/ArtistPage";
+export { default as DiscoverPage } from "./DiscoverPage/DiscoverPage";
+export { default as ChartsPage } from "./ChartsPage/ChartsPage";
+export { default as HomePage } from "./HomePage/HomePage";
+export { default as PlaylistPage } from "./PlaylistPage/PlaylistPage";
+export { default as SeeAllPage } from "./SeeAllPage/SeeAllPage";
+export { default as YourMusicPage } from "./YourMusicPage/YourMusicPage";

@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;700;900&display=swap");
+@import "./Pages/HomePage/HomePage";
+@import "./Components/Header/Header";
+@import "./Pages/PlaylistPage/PlaylistPage";
+@import "./Pages/ArtistPage/ArtistPage";
+@import "./Pages/AlbumPage/AlbumPage";
+@import "./Pages/SeeAllPage/SeeAllPage";
+@import "./Pages/YourMusicPage/YourMusicPage";
+@import "./Pages/LoginPage/LoginPage";
+@import "./Components/SongPlayer/SongBar";
+@import "./Pages/AccountPage/AccountPage";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &::after,
+  &::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+.browse-page-container,
+.discover-page-container,
+.charts-page-container {
+  padding: 4em 1.25em 6em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 2em;
+  font-family: "Lato", sans-serif;
+  &__box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    &:hover {
+      p.link-tag::after {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition-delay: 0s;
+      }
+      .hover-buttons {
+        visibility: visible;
+        button {
+          cursor: pointer;
+          display: grid;
+          place-items: center;
+          color: white;
+          padding: 0.35em;
+          width: 30px;
+          height: 30px;
+          border: none transparent;
+          border-radius: 50%;
+          outline: none transparent;
+          box-shadow: 0 0 6.5px rgba(0, 0, 0, 0.2);
+          background-color: transparent;
+          background-color: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(15px) saturate(160%) contrast(45%)
+            brightness(140%);
+          img {
+            filter: invert(100%);
+          }
+        }
+      }
+    }
+    &:hover::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+    }
+  }
+  img {
+    width: 100%;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+  }
+  a.link {
+    text-decoration: none;
+    color: #333;
+  }
+  p.link-tag {
+    width: fit-content;
+    padding: 0.35em 0.15em 0.15em;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: -0.5px;
+      opacity: 0.6;
+      width: 100%;
+      content: " ";
+      color: transparent;
+      background: #000;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+    }
+  }
+  .hover-buttons {
+    position: absolute;
+    visibility: hidden;
+    z-index: 2;
+    bottom: 25px;
+    width: 100%;
+    padding: 1em 0.925em 1em 0.65em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  :root {
+    font-size: 14.5px;
+  }
+  .browse-page-container,
+  .discover-page-container,
+  .charts-page-container {
+    padding: 6em 1.25em;
+  }
+}
