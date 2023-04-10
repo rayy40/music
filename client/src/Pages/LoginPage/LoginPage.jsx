@@ -2,7 +2,9 @@ import React from "react";
 
 export default function Login() {
   const LOGIN_URI =
-    process.env.NODE_ENV !== "production" ? "http://localhost:5000/login" : "";
+    process.env.NODE_ENV !== "production"
+      ? "http://localhost:5000/login"
+      : "https://universal-music.onrender.com/login";
 
   return (
     <div className="login-page-container">
